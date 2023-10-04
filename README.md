@@ -22,7 +22,7 @@ OPENAI_API_KEY=<your api key>
 
 ## Configure
 
-The setggins.yaml file already contains all the options like the name of files, model used, etc.
+The setings.yaml file already contains all the options like the name of files, model used, etc.
 
 ## Run the ETL
 
@@ -32,3 +32,8 @@ First step is to run the ETL to transform the excel file into a FAISS index.
 python etl.py
 ```
 
+For the ETL, we only need to change the embeddings if we want to adapt it to a non OpenAI solution. It's line 88.
+
+```python
+    faiss_index = FAISS.from_documents(documents, embedding=OpenAIEmbeddings())
+```
