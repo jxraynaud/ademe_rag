@@ -1,0 +1,8 @@
+pandas
+pyyaml
+openpyxl
+langchain
+python-dotenv
+openai
+tiktoken
+faiss-cpu

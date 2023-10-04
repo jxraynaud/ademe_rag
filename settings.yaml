@@ -1,0 +1,3 @@
+data_file_path: ./data/basecarbone-v17-fr.xlsx
+data_sheet: 'Sheet1'
+faiss_db_path: ./data/faiss_db
