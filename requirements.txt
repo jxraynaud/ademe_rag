@@ -6,3 +6,8 @@ python-dotenv
 openai
 tiktoken
 faiss-cpu
+fastapi
+uvicorn
+pytest
+httpx
+numexpr

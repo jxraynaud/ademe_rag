@@ -34,6 +34,11 @@ def generate_document(row, source_name):
     filtered_row = filtered_row.loc[filtered_row.index.isin(columns_to_keep)]
     concatenated_string = ' '.join(filtered_row.astype(str))
     
+    # Include unit and CO2 equivalent cost in the content
+    unit = row['Unit']
+    co2_equiv = row['CO2Equiv']
+    concatenated_string += f' has a CO2 equivalent cost of {co2_equiv} per {unit}'
+    
     metadata = {
         'source': source_name,
         'unit': row['Unit'],
@@ -87,4 +92,5 @@ if __name__ == '__main__':
     # Load those into a faiss index
     faiss_index = FAISS.from_documents(documents, embedding=OpenAIEmbeddings())
     faiss_db = os.path.join(settings['faiss_db_path'], 'faiss_db')
+    faiss_index.save_local(faiss_db)
     print('Saved faiss index to {}'.format(faiss_db))

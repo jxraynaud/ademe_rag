@@ -37,3 +37,20 @@ For the ETL, we only need to change the embeddings if we want to adapt it to a n
 ```python
     faiss_index = FAISS.from_documents(documents, embedding=OpenAIEmbeddings())
 ```
+
+## run the server
+
+To run it locally:
+
+```bash
+uvicorn app.server:app --reload
+```
+
+When the server is started you can access the swagger documentation [here](http://127.0.0.1:8000/docs
+)
+
+## run the tests
+
+```
+pytest tests/
+```
